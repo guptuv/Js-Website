@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J. Scientist</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+<style>
+body{
+    margin: 0px;
+}
+ 
+ .page_container_div{
+    height: 3000px;
+    background-image: linear-gradient(0deg, #000000, #000f55);
+    /* background-image: linear-gradient(0deg, #008ac3, #3f96ff); */
+ }
+    .header_container{
+        display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+    }
+    .header_img-1{
+        height: 60px;
+        top: 50px;
+        position: absolute;
+      left: 40px;
+    }
+    .header_img-2{
+        height: 110px;
+        
+       display: block;
+        margin: auto;
+    }
+
+    .header_img-3{
+        height: 100px;
+        top: 30px;
+        position: absolute;
+        right: 40px;
+    }
+    /* @media screen and (max-width: 768px) {
+  .navbar_image {
+    width: 40px;
+    height: 40px;
+  }
+} */
+
+/* slider css */
+.mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        max-width: 1300px;
+    position: relative;
+    max-height: 310px;
+    /* box-shadow: 0px 0px 16px 4px #c5c5c5a1; */
+    overflow: hidden;
+    margin: auto ;
+    /* border: 16px solid #ffffff; */
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
+      }
+
+
+
+      /* css for circular image gallary
+       */
+       .gallery {
+        gap: 8px;
+        display: grid;
+        width: 400px;
+        height: 400px;
+        place-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      
+      .gallery > img {
+        grid-area: 1/1;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 50%;
+        transform: translate(var(--_x, 0), var(--_y, 0));
+        cursor: pointer;
+        z-index: 0;
+        transition: 0.3s, z-index 0s, 0.3s;
+      }
+      
+      .gallery img:hover {
+        --i: 1;
+        z-index: 1;
+        transition: transform 0.2s, clip-path 0.3s 0.2s, z-index 0s;
+      }
+      
+      .gallery:hover img {
+        transform: translate(0, 0);
+      }
+      
+      .gallery img:nth-child(1) {
+        --g: 45deg; /* Adjust the angle */
+        clip-path: polygon(
+          50% 50%,
+          calc(50% var(--_1, 0)) calc(120% var(--_1, 0)),
+          100% var(--_i, 0),
+          0 0,
+          100% 0,
+          100% calc(100% var(--_1, 0)),
+          0 calc(100% var(--_1, 0))
+        );
+        --_y: calc(-1 * var(--g));
+      }
+      
+
+      .images_circular{
+        height: 50px;
+      }
+      .center_container{
+        width:  fit-content;
+        /* border: 3px solid white; */
+        margin: 0 auto;
+      }
+      .flex-item{
+        display: flex;
+      }
+
+      /* css for astronaut */
+      @keyframes snow {
+        0% {
+          opacity: 0;
+          transform: translateY(0px);
+        }
+      
+        20% {
+          opacity: 1;
+        }
+      
+        100% {
+          opacity: 1;
+          transform: translateY(650px);
+        }
+      }
+      
+      @keyframes astronaut {
+        0% {
+          transform: rotate(0deg);
+        }
+      
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      
+   
+      
+      .astronaut {
+        width: 250px;
+    height: 300px;
+    /* position: absolute; */
+    z-index: 11;
+    /* top: calc(50% - 150px); */
+    /* left: calc(50% - 125px); */
+    animation: astronaut 5s linear infinite;
+
+
+      }
+      
+      .schoolbag {
+        width: 100px;
+        height: 150px;
+        position: absolute;
+        z-index: 1;
+        top: calc(50% - 75px);
+        left: calc(50% - 50px);
+        background-color: #94b7ca;
+        border-radius: 50px 50px 0 0 / 30px 30px 0 0;
+      }
+      
+      .head {
+        width: 97px;
+        height: 80px;
+        position: absolute;
+        z-index: 3;
+        background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+        border-radius: 50%;
+        top: 34px;
+        left: calc(50% - 47.5px);
+      }
+      
+      .head:after {
+        content: "";
+        width: 60px;
+        height: 50px;
+        position: absolute;
+        top: calc(50% - 25px);
+        left: calc(50% - 30px);
+        background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+        border-radius: 15px;
+      }
+      
+      .head:before {
+        content: "";
+        width: 12px;
+        height: 25px;
+        position: absolute;
+        top: calc(50% - 12.5px);
+        left: -4px;
+        background-color: #618095;
+        border-radius: 5px;
+        box-shadow: 92px 0px 0px #618095;
+      }
+      
+      .body {
+        width: 85px;
+        height: 100px;
+        position: absolute;
+        z-index: 2;
+        background-color: #fffbff;
+        border-radius: 40px / 20px;
+        top: 105px;
+        left: calc(50% - 41px);
+        background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+      }
+      
+      .panel {
+        width: 60px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        left: calc(50% - 30px);
+        background-color: #b7cceb;
+      }
+      
+      .panel:before {
+        content: "";
+        width: 30px;
+        height: 5px;
+        position: absolute;
+        top: 9px;
+        left: 7px;
+        background-color: #fbfdfa;
+        box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+      }
+      
+      .panel:after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 9px;
+        right: 7px;
+        background-color: #fbfdfa;
+        border-radius: 50%;
+        box-shadow: 0px 14px 0px 2px #fbfdfa;
+      }
+      
+      .arm {
+        width: 80px;
+        height: 30px;
+        position: absolute;
+        top: 121px;
+        z-index: 2;
+      }
+      
+      .arm-left {
+        left: 30px;
+        background-color: #e3e8eb;
+        border-radius: 0 0 0 39px;
+      }
+      
+      .arm-right {
+        right: 30px;
+        background-color: #fbfdfa;
+        border-radius: 0 0 39px 0;
+      }
+      
+      .arm-left:before,
+      .arm-right:before {
+        content: "";
+        width: 30px;
+        height: 70px;
+        position: absolute;
+        top: -40px;
+      }
+      
+      .arm-left:before {
+        border-radius: 50px 50px 0px 120px / 50px 50px 0 110px;
+        left: 0;
+        background-color: #e3e8eb;
+      }
+      
+      .arm-right:before {
+        border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+        right: 0;
+        background-color: #fbfdfa;
+      }
+      
+      .arm-left:after,
+      .arm-right:after {
+        content: "";
+        width: 30px;
+        height: 10px;
+        position: absolute;
+        top: -24px;
+      }
+      
+      .arm-left:after {
+        background-color: #6e91a4;
+        left: 0;
+      }
+      
+      .arm-right:after {
+        right: 0;
+        background-color: #b6d2e0;
+      }
+      
+      .leg {
+        width: 30px;
+        height: 40px;
+        position: absolute;
+        z-index: 2;
+        bottom: 70px;
+      }
+      
+      .leg-left {
+        left: 76px;
+        background-color: #e3e8eb;
+        transform: rotate(20deg);
+      }
+      
+      .leg-right {
+        right: 73px;
+        background-color: #fbfdfa;
+        transform: rotate(-20deg);
+      }
+      
+      .leg-left:before,
+      .leg-right:before {
+        content: "";
+        width: 50px;
+        height: 25px;
+        position: absolute;
+        bottom: -26px;
+      }
+      
+      .leg-left:before {
+        left: -20px;
+        background-color: #e3e8eb;
+        border-radius: 30px 0 0 0;
+        border-bottom: 10px solid #6d96ac;
+      }
+      
+      .leg-right:before {
+        right: -20px;
+        background-color: #fbfdfa;
+        border-radius: 0 30px 0 0;
+        border-bottom: 10px solid #b0cfe4;
+      }
+
+      /* card csa  */
+      .card {
+        width: 350px;
+        height: 280px;
+        /* background: white; */
+        margin-bottom: 40px;
+        float: left;
+        margin-right: 30px;
+        margin-left: 36px;
+        border-radius: 32px;
+        padding: 3px;
+        position: relative;
+        box-shadow: #604b4a30 0px 70px 30px -50px;
+        transition: all 0.5s ease-in-out;
+      }
+      
+      .card .mail {
+        position: absolute;
+        right: 2rem;
+        top: 1.4rem;
+        background: transparent;
+        border: none;
+      }
+      
+      .card .mail svg {
+        stroke: #fbb9b6;
+        stroke-width: 3px;
+      }
+      
+      .card .mail svg:hover {
+        stroke: #f55d56;
+      }
+      
+      .card .profile-pic {
+        position: absolute;
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        top: 3px;
+        left: 3px;
+        border-radius: 29px;
+        z-index: 1;
+        border: 0px solid #fbb9b6;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+      }
+      
+      .card .profile-pic img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        -o-object-position: 0px 0px;
+        object-position: 0px 0px;
+        transition: all 0.5s ease-in-out 0s;
+      }
+      
+      .card .profile-pic svg {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: 0px 0px;
+        object-position: 0px 0px;
+        transform-origin: 45% 20%;
+        transition: all 0.5s ease-in-out 0s;
+      }
+      
+      .card .bottom {
+        position: absolute;
+        bottom: 3px;
+        left: 3px;
+        font-family: system-ui;
+        right: 3px;
+        padding: 20px;
+        background: #000c44e3;
+        top: 80%;
+        border-radius: 29px;
+        color: white;
+        z-index: 2;
+        box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    }
+    
+    
+      }
+      
+      .card .bottom .content {
+        position: absolute;
+        bottom: 0;
+        left: 1.5rem;
+        right: 1.5rem;
+        height: 160px;
+      }
+      
+      .card .bottom .content .name {
+        display: block;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: bold;
+      }
+      
+      .card .bottom .content .about-me {
+        display: block;
+        font-size: 0.9rem;
+        color: white;
+        margin-top: 1rem;
+      }
+      
+      .card .bottom .bottom-bottom {
+        position: absolute;
+        bottom: 1rem;
+        left: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .card .bottom .bottom-bottom .social-links-container {
+        display: flex;
+        gap: 1rem;
+      }
+      
+      .card .bottom .bottom-bottom .social-links-container svg {
+        height: 20px;
+        fill: white;
+        filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+      }
+      
+      .card .bottom .bottom-bottom .social-links-container svg:hover {
+        fill: #f55d56;
+        transform: scale(1.2);
+      }
+      
+      .card .bottom .bottom-bottom .button {
+        background: rgb(255, 255, 255);
+        color: #000000;
+        border: none;
+        border-radius: 20px;
+        font-size: 0.6rem;
+        padding: 0.4rem 0.6rem;
+        box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+      }
+      
+      .card .bottom .bottom-bottom .button:hover {
+        background: #f55d56;
+        color: white;
+      }
+      
+      .card:hover {
+        /* border-top-left-radius: 55px; */
+        border: 2px solid white;
+      }
+      
+      .card:hover .bottom {
+        top: 20%;
+        padding-top: 65px;
+        border-radius: 80px 29px 29px 29px;
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+      }
+      
+      .card:hover .profile-pic {
+        width: 100px;
+        height: 100px;
+        aspect-ratio: 1;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+        z-index: 3;
+        border: 7px solid #000f55;
+        box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+        transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+      }
+      
+      .card:hover .profile-pic:hover {
+        transform: scale(1.3);
+        border-radius: 0px;
+      }
+      
+      .card:hover .profile-pic img {
+        transform: scale(2.5);
+        -o-object-position: 0px 25px;
+        object-position: 0px 25px;
+        transition: all 0.5s ease-in-out 0.5s;
+      }
+      
+      .card:hover .profile-pic svg {
+        transform: scale(2.5);
+        transition: all 0.5s ease-in-out 0.5s;
+      }
+      .card-container0 {
+        margin-top: 45px;
+
+      }
+         /* Media query for smaller screens */
+         @media (max-width: 768px) {
+          .card  {
+            width: 131px;
+            margin-right: 12px;
+            margin-left: 12px;
+            height: 120px;
+          }
+      }
+      @media (max-width: 1368px) {
+        .card  {
+          width: 361px;
+          margin-right: 19px;
+          margin-left: 22px;
+          height: 261px;
+        }
+    }
+      /* Media query for even smaller screens */
+      @media (max-width: 480px) {
+          .card  {
+            width: 125px;
+            height: 100px;
+            margin: 10px 8px; /* Add vertical spacing between boxes */
+          }
+      }
+.mid_detail_container{
+  max-width: 1300px;
+  margin-top: 70px;
+}
+
+</style>
+  <body>
+    <div class="page_container_div">
+      <header>
+        <div>
+          <div class="header_container">
+            <li>
+              <img
+                src="vnitlogo.png"
+                class="header_img-1 navbar_image"
+                alt=""
+              />
+            </li>
+            <li>
+              <img
+                src="js_logo_white (1).png"
+                class="header_img-2 navbar_image"
+                alt=""
+              />
+            </li>
+            <li>
+              <img src="axis 24.png" class="header_img-3 navbar_image" alt="" />
+            </li>
+          </div>
+        </div>
+      </header>
+      <!--https://th.bing.com/th/id/OIP.nHYIc5JXFZwQ6aM0ZHrAmwHaE8?pid=ImgDet&rs=1-->
+      <main>
+        <div class="center_container">
+          <div>
+            <div class="slider_image_container">
+              <div class="slideshow-container">
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 4</div>
+                  <img
+                    src="https://pbs.twimg.com/media/FpfwumtaAAMd2K4?format=jpg&name=4096x4096"
+                    style="width: 100%"
+                  />
+                  <div class="text">JUNIOR SCIENTIST'23</div>
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 4</div>
+                  <img
+                    src="https://pbs.twimg.com/media/FpfwumtaAAMd2K4?format=jpg&name=4096x4096"
+                    style="width: 100%"
+                  />
+                  <div class="text">JUNIOR SCIENTIST'23</div>
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 4</div>
+                  <img
+                    src="https://pbs.twimg.com/media/FpfwumjaEAY1MYe?format=jpg&name=4096x4096"
+                    style="width: 100%"
+                  />
+                  <div class="text">JUNIOR SCIENTIST'23</div>
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">4 / 4</div>
+                  <img
+                    src="https://pbs.twimg.com/media/FpfwumkaEAAx3S2?format=jpg&name=4096x4096"
+                    style="width: 100%"
+                  />
+                  <div class="text">JUNIOR SCIENTIST'23</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              </div>
+              <br />
+              <div style="text-align: center">
+                <span class="dot" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div class="mid_detail_container ">
+            <div class="container_cardcontain">
+              <!-- cards  -->
+
+ <div class="card card_01">
+               
+               <div class="profile-pic">
+                <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+               </div>
+                <div class="bottom">
+                    <div class="content">
+                        <span class="name">Model United Nation</span>
+                        <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+                    </div>
+                   <div class="bottom-bottom">
+                    <div class="social-links-container">
+                       
+                      
+        
+                    </div><a href="quiz-info.html">
+                    <button class="button">Register</button></a>
+                   </div>
+                </div>
+            </div>
+            <div class="card card_01">
+             
+             <div class="profile-pic">
+              <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+             </div>
+              <div class="bottom">
+                  <div class="content">
+                      <span class="name">ExQuizit</span>
+                      <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+                  </div>
+                 <div class="bottom-bottom">
+                  <div class="social-links-container">
+                     
+                    
+      
+                  </div>
+                  <a href="quiz-info.html">
+                  <button class="button">Register</button></a>
+                 </div>
+              </div>
+          </div>
+          <div class="card card_01">
+     
+           <div class="profile-pic">
+            <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+           </div>
+            <div class="bottom">
+                <div class="content">
+                    <span class="name">Math-a-maze</span>
+                    <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+                </div>
+               <div class="bottom-bottom">
+                <div class="social-links-container">
+                   
+                  
+    
+                </div><a href="quiz-info.html">
+                <button class="button">Register</button></a>
+               </div>
+            </div>
+        </div>
+
+
+
+
+    <div class="card card_01">
+         
+         <div class="profile-pic">
+          <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+         </div>
+          <div class="bottom">
+              <div class="content">
+                  <span class="name">Model-o-thon</span>
+                  <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+              </div>
+             <div class="bottom-bottom">
+              <div class="social-links-container">
+                 
+                
+  
+              </div><a href="quiz-info.html">
+              <button class="button">Register</button></a>
+             </div>
+          </div>
+      </div>
+      <div class="card card_01">
+      
+       <div class="profile-pic">
+        <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+       </div>
+        <div class="bottom">
+            <div class="content">
+                <span class="name">Catapultikon</span>
+                <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+            </div>
+           <div class="bottom-bottom">
+            <div class="social-links-container">
+               
+              
+
+            </div><a href="quiz-info.html">
+            <button class="button">Register</button></a>
+           </div>
+        </div>
+    </div>
+    <div class="card card_01">
+    
+     <div class="profile-pic">
+      <img src=" https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?cs=srgb&dl=people-art-gallery-69903.jpg&fm=jpg " alt="">
+     </div>
+      <div class="bottom">
+          <div class="content">
+              <span class="name">
+                Junior Scientist Olympiad
+              </span>
+              <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+          </div>
+         <div class="bottom-bottom">
+          <div class="social-links-container">
+             
+            
+
+          </div><a href="quiz-info.html">
+          <button class="button">Register</button></a>
+         </div>
+      </div>
+  </div>
+
+             
+      
+            </div>
+          
+          </div>
+        </div>
+      </main>
+      <footer class="footer_container">
+
+      </footer>
+    </div>
+  </body>
+  <script>
+    let slideIndex = 0;
+    let timeoutId = null;
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+
+    showSlides();
+    function currentSlide(index) {
+      slideIndex = index;
+      showSlides();
+    }
+    function plusSlides(step) {
+      if (step < 0) {
+        slideIndex -= 2;
+
+        if (slideIndex < 0) {
+          slideIndex = slides.length - 1;
+        }
+      }
+
+      showSlides();
+    }
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].classList.remove("active");
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add("active");
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+  </script>
+</html>
